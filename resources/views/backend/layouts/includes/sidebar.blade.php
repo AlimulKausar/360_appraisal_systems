@@ -20,6 +20,7 @@
                 <div class="menu-title">Dashboard</div>
             </a>
         </li>
+        @if(auth()->user()->role_id==1)
         <li>
             <a href="{{ route('admin.index') }}">
                 <div class="parent-icon">
@@ -36,6 +37,7 @@
                 <div class="menu-title">Roles</div>
             </a>
         </li>
+        @endif
     </ul>
     <!--end navigation-->
 </div>

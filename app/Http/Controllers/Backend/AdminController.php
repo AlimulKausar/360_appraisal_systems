@@ -26,7 +26,6 @@ class AdminController extends Controller
             'password' => 'required',
             'role_id' => 'required',
         ]);
-        //use password hash
         $request['password'] = bcrypt($request->password);
         User::create($request->all());
         return redirect()->back()->with('message', 'Admin created successfully');
@@ -34,7 +33,7 @@ class AdminController extends Controller
 
     public function show(string $id)
     {
-
+        //
     }
 
     public function update(Request $request, string $id)
@@ -55,10 +54,5 @@ class AdminController extends Controller
         $admin = User::find($id);
         $admin->delete();
         return redirect()->back()->with('message', 'Admin deleted successfully');
-    }
-    //game 
-    public function game()
-    {
-        return view('backend.pages.game.game');
     }
 }
